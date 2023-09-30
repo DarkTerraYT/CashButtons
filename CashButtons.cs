@@ -66,6 +66,99 @@ namespace CashButton
         }
     }
 
+    // This is the Button that gives you cash
+    internal class AddCashButton10x : ModTower
+    {
+        public override string BaseTower => TowerType.DartMonkey;
+
+        public override int Cost => 0;
+
+        public override int TopPathUpgrades => 0;
+
+        public override int MiddlePathUpgrades => 0;
+
+        public override int BottomPathUpgrades => 0;
+
+        public override string Icon => "AddCashButton10xDisplay";
+
+        public override string Portrait => "AddCashButton10xDisplay";
+
+        public override string Description => "Gives you 10x the amount of the normal one";
+
+        public override TowerSet TowerSet => TowerSet.Support;
+
+        public override void ModifyBaseTowerModel(TowerModel towerModel)
+        {
+            towerModel.RemoveBehavior(towerModel.GetAttackModel());
+            towerModel.range = 1f;
+            var behaviors = new Il2CppReferenceArray<Model>(1);
+            behaviors[0] = new ImfLoanModel("GiveCash", CashButtonMod.CashOnAbilityUse * 10, 0f, new PrefabReference(), 1);
+            var abilityModel = new AbilityModel("giveCash2_", "Cash Drop 10x", "Gives the Player the Number of Cash set in the Config x 10", 0, 0, GetSpriteReference(Icon),
+                0f, behaviors, false, false, null, 0, 0, -1, true, false);
+            towerModel.AddBehavior(abilityModel);
+        }
+    }
+
+    // The Display for the tower above
+    internal class AddCashButton10xDisplay : ModTowerDisplay<AddCashButton10x>
+    {
+        public override string BaseDisplay => Generic2dDisplay;
+        public override bool UseForTower(int[] tiers)
+        {
+            return tiers.Max() < 1;
+        }
+        public override void ModifyDisplayNode(UnityDisplayNode node)
+        {
+            Set2DTexture(node, Name);
+        }
+    }
+
+    internal class AddCashButton100x : ModTower
+    {
+        public override string BaseTower => TowerType.DartMonkey;
+
+        public override int Cost => 0;
+
+        public override int TopPathUpgrades => 0;
+
+        public override int MiddlePathUpgrades => 0;
+
+        public override int BottomPathUpgrades => 0;
+
+        public override string Icon => "AddCashButton100xDisplay";
+
+        public override string Portrait => "AddCashButton100xDisplay";
+
+        public override string Description => "Gives you 100x the amount of the normal one";
+
+        public override TowerSet TowerSet => TowerSet.Support;
+
+        public override void ModifyBaseTowerModel(TowerModel towerModel)
+        {
+            towerModel.RemoveBehavior(towerModel.GetAttackModel());
+            towerModel.range = 1f;
+            var behaviors = new Il2CppReferenceArray<Model>(1);
+            behaviors[0] = new ImfLoanModel("GiveCash", CashButtonMod.CashOnAbilityUse * 100, 0f, new PrefabReference(), 1);
+            var abilityModel = new AbilityModel("giveCash3_", "Cash Drop 100x", "Gives the Player the Number of Cash set in the Config x 10", 0, 0, GetSpriteReference(Icon),
+                0f, behaviors, false, false, null, 0, 0, -1, true, false);
+            towerModel.AddBehavior(abilityModel);
+        }
+    }
+
+    // The Display for the tower above
+    internal class AddCashButton100xDisplay : ModTowerDisplay<AddCashButton100x>
+    {
+        public override string BaseDisplay => Generic2dDisplay;
+        public override bool UseForTower(int[] tiers)
+        {
+            return tiers.Max() < 1;
+        }
+        public override void ModifyDisplayNode(UnityDisplayNode node)
+        {
+            Set2DTexture(node, Name);
+        }
+    }
+
     internal class SetCashButton : ModTower
     {
         public override TowerSet TowerSet => TowerSet.Support;

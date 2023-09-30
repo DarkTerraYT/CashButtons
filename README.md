@@ -5,6 +5,6 @@
 
 <h1 align="center">CashButton</h1>
 
-Adds two towers that give you and sets your cash. The amount the buttons give/set to can be difined in the config.
+Adds two towers that give you and sets your cash there's also two towers that give 10x and 100x the amount of this one. The amount the buttons give/set to can be difined in the config.
 
 [![Requires BTD6 Mod Helper](https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/banner.png)](https://github.com/gurrenm3/BTD-Mod-Helper#readme)
